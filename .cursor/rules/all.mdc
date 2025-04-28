@@ -3,3 +3,62 @@ description:
 globs: 
 alwaysApply: true
 ---
+# Règles du projet pour mon site personnel de développeur Fullstack
+
+## Stack technique
+Frontend:
+- Framework : **Next.js** (dernière version)
+- Style : **TailwindCSS** + **shadcn/ui** pour les composants
+- Animations : **Framer Motion**
+- Contenu : **next-mdx-remote** pour charger les articles de blog depuis des fichiers `.mdx`
+- Formulaires : Utiliser un service tiers comme **Formspree** ou **Resend** pour le formulaire de contact
+- Base de données optionnelle : **Supabase** (uniquement si besoin de stocker du contenu dynamique, sinon pas de base de données)
+
+## Structure des dossiers
+- `/components/` : Composants React (Navbar, Footer, BlogCard, ServiceCard, etc.)
+- `/content/blogs/` : Fichiers `.mdx` pour les articles de blog
+- `/pages/` : Routes Next.js (index.tsx, about.tsx, contact.tsx, blog/[slug].tsx)
+- `/lib/` : Fonctions utilitaires (ex: parsing MDX)
+- `/public/` : Fichiers statiques (images, favicons, etc.)
+- `/styles/` : Styles globaux Tailwind
+- `/animations/` : Variants pour les animations Framer Motion
+- `/config/` : Fichiers de configuration (ex: metadata du site)
+
+## Règles d'interface utilisateur
+- Design moderne, minimaliste, et propre.
+- Utiliser **shadcn/ui** pour garder un style cohérent.
+- Utiliser Tailwind pour personnaliser le design.
+- Ajouter des animations fluides avec **Framer Motion**.
+- Accessibilité (ajouter des labels ARIA si nécessaire).
+
+## Règles de contenu
+- Portfolio : Afficher les projets avec images, technologies utilisées, et liens.
+- Services : Lister clairement les services avec des icônes et descriptions.
+- Blog : Publier des articles depuis les fichiers `.mdx` avec des métadonnées optimisées pour le SEO.
+- Publications LinkedIn : Reprendre les articles du blog formatés pour LinkedIn.
+- Formulaire de contact : Permettre aux visiteurs de te contacter facilement.
+- Parcours/Route : (Optionnel) pour montrer tes certifications, formations, etc.
+
+## Bonnes pratiques de code
+- Utiliser **TypeScript** partout.
+- Garder les composants petits et réutilisables.
+- Grouper les fichiers liés ensemble (ex: chaque page peut avoir son propre dossier avec ses composants).
+- Utiliser `async/await` plutôt que `.then()`.
+- Gérer les erreurs proprement (avec error boundaries ou composants d'erreur).
+- Utiliser les variables d'environnement correctement (ex: clés Supabase si besoin).
+- Optimiser les images avec le composant `<Image>` de Next.js.
+
+## SEO
+- Mettre en place les bases du SEO avec Next.js (title, meta description, OpenGraph).
+- Générer dynamiquement les métadonnées pour les articles de blog à partir du frontmatter des `.mdx`.
+
+## Déploiement
+- Déployer sur **Vercel** (recommandé).
+- Déploiement automatique sur push vers la branche `main`.
+- Reconstruire le site quand un nouvel article de blog est ajouté.
+
+## Notes importantes
+- Aucun serveur backend n’est nécessaire sauf si besoin d’API personnalisées.
+- Supabase est facultatif, seulement pour des fonctionnalités dynamiques (ex: inscription à une newsletter, commentaires, etc.).
+- Les articles de blog sont permanents et stockés de manière statique tant que les fichiers `.mdx` existent.
+
